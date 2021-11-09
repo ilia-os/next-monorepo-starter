@@ -1,0 +1,17 @@
+.pageBox {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #F2F2F2;
+	font-family: sans-serif;
+
+	.mainBox {
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+	}
+
+	.footerWrapper {
+		margin-top: auto;
+	}
+}

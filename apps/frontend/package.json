@@ -6,18 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "add:component": "yarn hygen generate component",
+    "add:page": "yarn hygen generate page",
+    "add:helper": "yarn hygen generate helper",
+    "add:hook": "yarn hygen generate hook",
+    "i18n:scan": "i18next-scanner 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "classnames": "^2.3.1",
+    "file-loader": "^6.2.0",
     "next": "12.0.3",
+    "next-i18next": "^8.10.0",
+    "next-seo": "^4.28.1",
+    "nextjs-progressbar": "^0.0.13",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-if": "^4.1.1",
+    "react-toast-notifications": "^2.5.1",
+    "sass": "^1.43.4"
   },
   "devDependencies": {
     "@types/node": "16.11.7",
     "@types/react": "17.0.34",
     "eslint": "7",
     "eslint-config-next": "12.0.3",
+    "hygen": "^6.1.0",
+    "i18next-scanner-webpack": "^0.8.2",
     "typescript": "4.4.4"
   }
 }

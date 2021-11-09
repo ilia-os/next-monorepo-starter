@@ -1,0 +1,18 @@
+# EditorConfig: http://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Default for every file
+# Unix-style newlines with a newline ending
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = tab
+indent_size = 4
+charset = utf-8
+
+# Indent with 2 spaces
+[*.{js,ts,jsx,tsx,json,jshintrc,yml,eslintrc}]
+indent_style = space
+indent_size = 2

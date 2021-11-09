@@ -1,6 +1,9 @@
 {
   "name": "next-monorepo",
   "private": true,
+  "scripts": {
+    "dev": "lerna run dev --stream"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   },

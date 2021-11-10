@@ -3,7 +3,7 @@
 It is a lerna monorepo.
 
 ## Dependencies
-`node-14` `yarn` `lerna` `docker` `docker-compose`
+`node` `yarn` `lerna` `docker` `docker-compose`
 
 ## Getting started with development
 
@@ -19,7 +19,7 @@ yarn run dev
 Each individual package can be run using `lerna`
 
 ```sh
-lerna run dev --stream --scope website-cogify-frontend
+lerna run dev --stream --scope frontend
 ```
 
 or using its own `package.json`

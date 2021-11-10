@@ -1,0 +1,59 @@
+---
+to: "<%= `pages${path}.tsx` %>"
+---
+import * as React from 'react'
+import type { GetServerSideProps, GetStaticProps, GetStaticPaths, NextPage } from '@typings'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+import { ErrorBoundary, NextSeo, MainShell, Link } from '@components'
+import { useTranslation } from '@hooks'
+import { titleTemplate } from '@constants'
+
+export type T<%= h.changeCase.pascal(name) %>PageProps = {}
+
+/**  */
+const <%= h.changeCase.pascal(name) %>Page: NextPage<T<%= h.changeCase.pascal(name) %>PageProps> = (props) => {
+	const { t } = useTranslation(['common'])
+
+	return (
+		<ErrorBoundary>
+			<NextSeo title="" titleTemplate={titleTemplate} />
+			<MainShell>
+				<div><%= h.changeCase.pascal(name) %>Page</div>
+				<br />
+				<Link href="/">
+					<a>GO TO MAIN</a>
+				</Link>
+			</MainShell>
+		</ErrorBoundary>
+	)
+}
+
+export const getStaticProps: GetStaticProps<T<%= h.changeCase.pascal(name) %>PageProps> = async ({ locale, locales, params, preview, previewData }) => {
+	return {
+		props: {
+			...await serverSideTranslations(String(locale), ['common']),
+		},
+		revalidate: false, // false or number in seconds.
+	}
+}
+
+// export const getStaticPaths: GetStaticPaths = async  () =>  {
+//    const paths = [
+//      { params: { id: '1' } }
+//    ]
+//   return {
+//     paths,
+//     fallback: false, // false = will return 404 page, true = let's use router.isFallback.
+//   };
+// }
+
+// export const getServerSideProps: GetServerSideProps<TProps> = async ({ params, query, req, res }) => {
+// 	return {
+//      props: {
+// 			...await serverSideTranslations(locale, ['common']),
+// 		},
+// 	}
+// }
+
+export default <%= h.changeCase.pascal(name) %>Page

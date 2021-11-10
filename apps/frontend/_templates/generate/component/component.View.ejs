@@ -1,0 +1,25 @@
+---
+to: src/components/<%= folder %>/<%= h.changeCase.pascal(name) %>/<%= h.changeCase.pascal(name) %>.tsx
+---
+import * as React from 'react'
+import styles from './<%= h.changeCase.pascal(name) %>.module.scss'
+import { useTranslation } from '@hooks'
+import { cx } from '@helpers'
+import {  } from '@components'
+
+export type T<%= h.changeCase.pascal(name) %>Props = {
+	
+}
+
+/**  */
+export const <%= h.changeCase.pascal(name) %>: React.FC<T<%= h.changeCase.pascal(name) %>Props> = ({  }) => {
+	const { t } = useTranslation(['common'])
+
+	return (
+		<div className={styles.component}>
+			<%= h.changeCase.pascal(name) %>
+		</div>
+	)
+}
+
+export default <%= h.changeCase.pascal(name) %>;

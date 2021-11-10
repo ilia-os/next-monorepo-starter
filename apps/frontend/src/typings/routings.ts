@@ -3,7 +3,7 @@ import type { TFunction } from 'next-i18next'
 
 export type TRoutesSection = 'header' | null
 
-export type TRouteName = 'landing' // | 'example'
+export type TRouteName = 'landing' | 'example'
 
 export type TRouteMapItem = {
 	pathname: string

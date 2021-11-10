@@ -15,7 +15,6 @@ export const AppHeader: React.FC<TAppHeaderProps> = ({}) => {
 	return (
     <Container bg='primary'>
       <div className={styles.component}>
-        {t('common:Header')}
         {links.map(([key, link]) => (
           <Link href={link.pathname} key={key}>
             <a className={styles.link}>

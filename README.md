@@ -14,7 +14,7 @@ lerna bootstrap
 yarn run dev
 ```
 
-######Frontend should now be accessible on [port 3000](http://localhost:3000)
+###### Frontend should now be accessible on [port 3000](http://localhost:3000)
 
 Each individual package can be run using `lerna`
 
@@ -35,7 +35,7 @@ The only requirement for prod environment is docker:
 docker-compose -f docker-compose.prod.yml build
 docker-compose -f docker-compose.prod.yml up 
 ```
-######Frontend should now be accessible on [port 80](http://localhost:80)
+###### Frontend should now be accessible on [port 80](http://localhost:80)
 
-###Author: 
+### Author: 
 Ilia Osipov

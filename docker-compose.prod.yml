@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+    nginx:
+        container_name: nginx-prod
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: nginx.dockerfile
+        ports:
+            - '80:80'
+        depends_on:
+            - frontend
+        networks:
+            - platform
+
+    frontend:
+        container_name: frontend-prod
+        restart: unless-stopped
+        environment:
+            - NODE_ENV=production
+        build:
+            context: ./apps/frontend
+            dockerfile: frontend.dockerfile
+        ports:
+            - '3000:3000'
+        networks:
+            - platform
+
+networks:
+    platform:

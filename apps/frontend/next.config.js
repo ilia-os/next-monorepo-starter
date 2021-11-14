@@ -2,6 +2,7 @@
 
 const { i18n } = require('./next-i18next.config')
 const path = require('path')
+const withTM = require('next-transpile-modules')([])
 
 const nextConfig = {
   webpack(wpConfig, options) {
@@ -43,5 +44,5 @@ const nextConfig = {
   i18n,
 }
 
-module.exports = nextConfig
+module.exports = withTM(nextConfig)
 

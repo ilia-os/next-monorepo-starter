@@ -9,7 +9,7 @@ export type TContainerProps = {
 	fullWidth?: boolean
 	fullHeight?: boolean
 	wide?: boolean
-	backgroundContent?: React.FC
+	backgroundContent?: React.ReactNode
 	className?: string
 }
 

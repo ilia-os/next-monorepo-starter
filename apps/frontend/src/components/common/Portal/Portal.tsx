@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 
 export type TPortalProps = {
 	selector?: string
-	children: React.ReactElement
+	children: React.ReactNode
 }
 
 /** React Portal which renders children into html tag which can be found with passed selector. */

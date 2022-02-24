@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Container, AppHeader, AppFooter } from '@components'
+import { AppHeader, AppFooter } from '@components'
 import styles from './MainShell.module.scss'
 import cx from 'classnames'
 
@@ -10,9 +10,9 @@ export type TMainShell = {
 /** Wrapper around page content implements regular header and footer. */
 export const MainShell: React.FC<TMainShell> = ({ children, className }) => {
 	return (
-		<div className={cx(styles.pageBox, className)}>
+		<div className={cx(styles.wrapper, className)}>
       <AppHeader />
-			<main className={styles.mainBox}>{children}</main>
+			<main className={styles.content}>{children}</main>
       <AppFooter />
 		</div>
 	)

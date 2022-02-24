@@ -10,7 +10,7 @@ It is a lerna monorepo.
 Run monorepo in dev mode:
 
 ```sh
-lerna bootstrap
+yarn
 yarn run dev
 ```
 

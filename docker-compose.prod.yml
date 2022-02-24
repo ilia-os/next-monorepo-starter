@@ -6,7 +6,7 @@ services:
         restart: unless-stopped
         build:
             context: .
-            dockerfile: nginx.dockerfile
+            dockerfile: Dockerfile.nginx
         ports:
             - '80:80'
         depends_on:
@@ -17,11 +17,9 @@ services:
     frontend:
         container_name: frontend-prod
         restart: unless-stopped
-        environment:
-            - NODE_ENV=production
         build:
-            context: ./apps/frontend
-            dockerfile: frontend.dockerfile
+            context: .
+            dockerfile: Dockerfile.frontend
         ports:
             - '3000:3000'
         networks:

@@ -1,0 +1,34 @@
+# Install
+FROM node:16-alpine AS deps
+WORKDIR /repo
+COPY package.json yarn.lock ./
+
+WORKDIR /repo/apps/frontend
+COPY /apps/frontend/package.json ./
+
+## Install all deps, minify later
+WORKDIR /repo
+RUN yarn install --frozen-lockfile
+
+
+# Build
+FROM deps AS builder
+WORKDIR /repo
+COPY /apps/frontend ./apps/frontend
+
+WORKDIR /repo/apps/frontend
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV production
+
+RUN yarn build
+
+## Minify deps
+WORKDIR /repo
+RUN yarn install --production --ignore-scripts --prefer-offline --frozen-lockfile
+
+
+# Run
+FROM builder AS runner
+WORKDIR /repo/apps/frontend
+EXPOSE 3000
+CMD ["yarn", "start"]

@@ -2,7 +2,10 @@
   "name": "next-monorepo",
   "private": true,
   "scripts": {
-    "dev": "lerna run dev --stream"
+    "dev": "lerna run dev --stream",
+    "docker:build": "docker-compose -f docker-compose.prod.yml build",
+    "docker:up": "docker-compose -f docker-compose.prod.yml up",
+    "docker:stop": "docker-compose -f docker-compose.prod.yml up stop"
   },
   "workspaces": {
     "packages": [

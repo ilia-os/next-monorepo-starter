@@ -1,1 +1,1 @@
-export const titleTemplate = '%s | changeMe.net'
+export const titleTemplate = '%s | changeMe.net' // TODO: change me

@@ -13,10 +13,7 @@ export const MainShell: React.FC<TMainShell> = ({ children, className }) => {
 		<div className={cx(styles.pageBox, className)}>
       <AppHeader />
 			<main className={styles.mainBox}>{children}</main>
-
-			<div className={styles.footerWrapper}>
-        <AppFooter />
-			</div>
+      <AppFooter />
 		</div>
 	)
 }

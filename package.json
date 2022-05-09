@@ -1,14 +1,15 @@
 {
-  "name": "next-monorepo",
-  "version": "0.0.2",
-  "private": true,
-  "scripts": {
-    "dev": "echo Not implemented"
-  },
-  "workspaces": {
-    "packages": [
-      "apps/*",
-      "packages/*"
-    ]
-  }
+	"name": "next-monorepo",
+	"version": "0.0.2",
+	"homepage": "https://github.com/wget-high/next-monorepo-starter#readme",
+	"private": true,
+	"scripts": {
+		"dev": "echo Not implemented"
+	},
+	"workspaces": {
+		"packages": [
+			"apps/*",
+			"packages/*"
+		]
+	}
 }

@@ -1,0 +1,14 @@
+{
+  "name": "next-monorepo",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "dev": "echo Not implemented"
+  },
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  }
+}

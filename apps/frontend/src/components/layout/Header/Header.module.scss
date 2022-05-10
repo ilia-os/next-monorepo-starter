@@ -1,0 +1,29 @@
+.component {
+	position: fixed;
+	top: 0;
+	left: 1rem;
+	right: 1rem;
+	height: 5rem;
+	display: flex;
+	border-bottom: 1px solid #eaeaea;
+	background-color: $background_color;
+	justify-content: flex-start;
+	align-items: center;
+
+	.logo {
+		font-size: 1.75rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $primary_color;
+	}
+
+	.menu {
+		display: flex;
+		margin-left: auto;
+		gap: 2rem;
+
+		.item {
+			font-size: 1.5rem;
+		}
+	}
+}

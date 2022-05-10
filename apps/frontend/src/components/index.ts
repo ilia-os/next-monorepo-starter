@@ -1,6 +1,10 @@
 export { default as Link } from 'next/link'
 export { default as Image } from 'next/image'
-export { NextSeo } from 'next-seo'
+export { NextSeo, DefaultSeo } from 'next-seo'
 
 export { default as ErrorBoundary } from './common/ErrorBoundary'
 export { default as Portal } from './common/Portal'
+export { default as AppLayout } from './layout/AppLayout'
+export { default as Header } from './layout/Header'
+export { default as Footer } from './layout/Footer'
+export { default as MonorepoPromo } from './home/MonorepoPromo'

@@ -1,8 +1,11 @@
 html,
 body {
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	background-color: $background_color;
+}
+
+#__next {
+	font-family: Menlo, Monaco, Lucida Console, Liberati Bitstream Vera Sans Mono,
+		Courier New, monospace;
 }
 
 a {

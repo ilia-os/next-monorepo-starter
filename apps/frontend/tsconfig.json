@@ -1,4 +1,16 @@
 {
 	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@components": ["./src/components"],
+			"@constants": ["./src/constants"],
+			"@helpers": ["./src/helpers"],
+			"@types": ["./src/types"],
+			"@hooks": ["./src/hooks"],
+			"@icons": ["./src/icons"],
+			"@/*": ["./src/*"]
+		}
+	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

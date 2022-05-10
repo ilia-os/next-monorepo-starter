@@ -4,7 +4,10 @@
 	"homepage": "https://github.com/wget-high/next-monorepo-starter#readme",
 	"private": true,
 	"scripts": {
-		"dev": "echo Not implemented"
+		"dev": "yarn workspaces foreach -i run dev",
+		"lint": "yarn workspaces foreach -i run lint",
+		"prettify": "yarn workspaces foreach -i run prettier --write",
+		"tsc": "yarn workspaces foreach -i run tsc --noEmit"
 	},
 	"packageManager": "yarn@3.2.0",
 	"workspaces": {

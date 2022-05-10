@@ -7,18 +7,13 @@ module.exports = [
 	{
 		type: 'select',
 		name: 'folder',
-		message: 'Select component folder...',
+		message: 'Select component folder...', // TODO add yours
 		choices: [
-      'landing',
+      'home',
       'common',
       'layout',
       'utility',
       'typography',
-      'approach',
-      'about',
-      'insights',
-      'services',
-      'methodologies'
     ],
 	},
 ]

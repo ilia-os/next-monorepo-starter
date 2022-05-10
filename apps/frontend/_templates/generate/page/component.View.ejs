@@ -3,27 +3,25 @@ to: "<%= `pages${path}.tsx` %>"
 ---
 import * as React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import type { GetServerSideProps, GetStaticProps, GetStaticPaths, NextPage } from '@typings'
+import type { GetServerSideProps, GetStaticProps, GetStaticPaths, NextPage } from '@types'
 import { NextSeo, Link } from '@components'
 import { useTranslation } from '@hooks'
-import { titleTemplate } from '@constants'
 
 export type T<%= h.changeCase.pascal(name) %>PageProps = {}
 
 /**  */
-const <%= h.changeCase.pascal(name) %>Page: NextPage<T<%= h.changeCase.pascal(name) %>PageProps> = (props) => {
+const <%= h.changeCase.pascal(name) %>Page: NextPage<T<%= h.changeCase.pascal(name) %>PageProps> = ({}) => {
 	const { t } = useTranslation(['common'])
 
 	return (
-		<ErrorBoundary>
-			<NextSeo title={t('common:pages.<%=name%>.title')} titleTemplate={titleTemplate} />
-				<div><%= h.changeCase.pascal(name) %>Page</div>
-				<br />
-				<Link href='/'>
-					<a>GO TO MAIN</a>
-				</Link>
-			</MainShell>
-		</ErrorBoundary>
+        <>
+            <NextSeo title={t('common:pages.<%=h.changeCase.lowerCase(name)%>.title')} />
+            <div><%= h.changeCase.pascal(name) %>Page</div>
+            <br />
+            <Link href='/'>
+                <a>GO TO MAIN</a>
+            </Link>
+        </>
 	)
 }
 

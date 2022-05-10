@@ -1,0 +1,6 @@
+---
+inject: true
+to: src/components/index.ts
+append: true
+---
+export { default as <%= h.changeCase.pascal(name) %> } from './<%= folder %>/<%= h.changeCase.pascal(name) %>'

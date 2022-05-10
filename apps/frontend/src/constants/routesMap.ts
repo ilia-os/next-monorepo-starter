@@ -10,6 +10,11 @@ export const routesMap = (
 		title: t('common:pages.home.title'),
 		sections: ['header'],
 	},
+	example: {
+		pathname: '/example',
+		title: t('common:pages.example.title'),
+		sections: ['header'],
+	},
 })
 
 export default routesMap

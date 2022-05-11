@@ -19,14 +19,18 @@ WORKDIR /repo
 COPY /tsconfig.json ./
 
 WORKDIR /repo/apps/frontend
-COPY /apps/frontend/src ./src
-COPY /apps/frontend/pages ./pages
+
 COPY /apps/frontend/tsconfig.json ./
 COPY /apps/frontend/.eslintrc.json ./
+COPY /apps/frontend/next-sitemap.js ./
 COPY /apps/frontend/*.config.js ./
 
 COPY /apps/frontend/README.md ./
 COPY /apps/frontend/public ./public
+
+COPY /apps/frontend/src ./src
+COPY /apps/frontend/pages ./pages
+
 COPY /apps/frontend/.env.* ./
 
 ENV NODE_ENV production

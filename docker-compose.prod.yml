@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: monorepo-nginx-prod
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    networks:
+      - platform
+    depends_on:
+      - frontend
+
+  frontend:
+    container_name: monorepo-frontend-prod
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      network: monorepo-build-external
+    networks:
+      - platform
+
+networks:
+  platform:
+  build:
+    external: # because we need other services at build time...
+      name: monorepo-build-external

@@ -1,0 +1,66 @@
+# Install
+FROM node:16-alpine AS deps
+RUN apk add --no-cache libc6-compat git
+
+WORKDIR /repo
+COPY /package.json /yarn.lock /.yarnrc.yml ./
+COPY /.yarn ./.yarn
+
+WORKDIR /repo/apps/frontend
+COPY /apps/frontend/package.json ./
+
+WORKDIR /repo
+RUN yarn install --frozen-lockfile
+
+
+# Build
+FROM deps AS builder
+WORKDIR /repo
+COPY /tsconfig.json ./
+
+WORKDIR /repo/apps/frontend
+COPY /apps/frontend/src ./src
+COPY /apps/frontend/pages ./pages
+COPY /apps/frontend/tsconfig.json ./
+COPY /apps/frontend/.eslintrc.json ./
+COPY /apps/frontend/*.config.js ./
+
+COPY /apps/frontend/README.md ./
+COPY /apps/frontend/public ./public
+COPY /apps/frontend/.env.* ./
+
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN yarn build
+# RUN yarn sitemap:build
+
+
+# Run
+FROM node:16-alpine AS runner
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV PORT 3000
+
+WORKDIR /repo
+COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/.next/standalone ./
+
+WORKDIR /repo/apps/frontend/.next/cache
+VOLUME /repo/apps/frontend/.next/cache/images
+RUN chown -R nextjs:nodejs .
+
+WORKDIR /repo/apps/frontend
+COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/next.config.js ./
+
+# Better serve directly
+COPY --from=builder /repo/apps/frontend/public ./public
+COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/.next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+
+CMD ["node", "server.js"]

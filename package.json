@@ -7,7 +7,11 @@
 		"dev": "yarn workspaces foreach -i run dev",
 		"lint": "yarn workspaces foreach -i run lint",
 		"prettify": "yarn workspaces foreach -i run prettier --write",
-		"tsc": "yarn workspaces foreach -i run tsc --noEmit"
+		"tsc": "yarn workspaces foreach -i run tsc --noEmit",
+		"docker:prod:build": "docker-compose -f docker-compose.prod.yml build",
+		"docker:prod:up": "docker-compose -f docker-compose.prod.yml up -d",
+		"docker:prod:upi": "docker-compose -f docker-compose.prod.yml up",
+		"docker:prod:stop": "docker-compose -f docker-compose.prod.yml stop"
 	},
 	"packageManager": "yarn@3.2.0",
 	"workspaces": {

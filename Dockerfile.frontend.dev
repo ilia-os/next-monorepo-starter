@@ -1,4 +1,4 @@
-FROM node:16-alpine AS deps
+FROM node:16-alpine AS dev
 RUN apk add libc6-compat bash git
 
 WORKDIR /repo/apps/frontend

@@ -2,6 +2,7 @@ import * as React from 'react'
 import styles from './MonorepoPromo.module.scss'
 import { useRoutesMap, useTranslation } from '@hooks'
 import { cx } from '@helpers'
+import { Link } from '@components'
 
 export type TMonorepoPromoProps = {}
 
@@ -33,10 +34,12 @@ export const MonorepoPromo: React.FC<TMonorepoPromoProps> = ({}) => {
 					<p>Find monorepo flight manual</p>
 				</a>
 
-				<a href={routes.example.pathname} className={styles.card}>
-					<h2>Example page &rarr;</h2>
-					<p>Example page with same layout. Routing is performed by next</p>
-				</a>
+				<Link href={routes.example.pathname}>
+					<a className={styles.card}>
+						<h2>Example page &rarr;</h2>
+						<p>Example page with same layout. Routing is performed by next</p>
+					</a>
+				</Link>
 
 				<a href="https://nextjs.org/docs" className={styles.card}>
 					<h2>Documentation &rarr;</h2>

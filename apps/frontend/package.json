@@ -7,6 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+		"sitemap:build": "next-sitemap",
 		"add:component": "yarn hygen generate component",
 		"add:page": "yarn hygen generate page",
 		"add:helper": "yarn hygen generate helper",
@@ -36,6 +37,7 @@
 		"eslint-config-next": "^12.1.6",
 		"eslint-config-prettier": "^8.5.0",
 		"hygen": "^6.2.0",
+		"next-sitemap": "^2.5.20",
 		"prettier": "^2.6.2",
 		"typescript": "^4.6.4"
 	}

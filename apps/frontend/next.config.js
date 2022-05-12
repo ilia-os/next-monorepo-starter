@@ -1,5 +1,7 @@
 const path = require('path')
 const { i18n } = require('./next-i18next.config')
+const { I18NextHMRPlugin } = require('i18next-hmr/plugin')
+
 const withBundleAnalyzer =
 	process.env.ANALYZE === 'true'
 		? require('@next/bundle-analyzer')()
@@ -19,7 +21,7 @@ const baseConfig = {
 		prependData: `@import "@css/variables.scss";`,
 	},
 
-	webpack(wpConfig) {
+	webpack(wpConfig, context) {
 		wpConfig.resolve.alias['@components'] = path.join(
 			__dirname,
 			'src/components'
@@ -51,6 +53,15 @@ const baseConfig = {
 				},
 			],
 		})
+
+		/* Dev */
+		if (!context.isServer && context.dev) {
+			console.log('Running development webpack..')
+
+			/* i18next-hmr */
+			const localesDir = path.resolve('public/locales')
+			wpConfig.plugins.push(new I18NextHMRPlugin({ localesDir }))
+		}
 
 		return wpConfig
 	},

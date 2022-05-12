@@ -45,16 +45,12 @@ yarn docker:prod:up
 - production-ready docker setup with nginx proxy
 - dev in docker
 - generators made with hygen
-- i18n-ready
+- i18n-ready with locales HMR
 - routes metadata framework
 - next-seo setup
 - sitemap generation
 - embedding svg with svgr
 - prettier, eslint, typescript setup
-
-## Known issues
-
-- Locales do not hot-reload
 
 ### [Getting started guide](./GETTING-STARTED.md)
 

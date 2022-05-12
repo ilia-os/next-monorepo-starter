@@ -1,6 +1,6 @@
 # [next-monorepo-starter](https://github.com/wget-high/next-monorepo-starter#readme)
 
-It is a monorepo with typescript next application and docker set up.
+Production-ready monorepo with typescript next application and nginx set up in docker.
 
 Both prod & dev environments are supposed to be run in docker.
 There are known issues while working with docker-desktop and buildkit runtime
@@ -15,22 +15,23 @@ For usage without docker, see [recipes](./RECIPES.md)
 ## Quick start
 
 ```sh
-cp /apps/frontend/.env.example /apps/frontend/.env
+cp ./apps/frontend/.env.example ./apps/frontend/.env
 ```
 
 ### Dev
 
 ```sh
-yarn docker:dev:front
-yarn
-yarn dev
+yarn install # otherwise cant use package.json scripts
+yarn docker:dev:prepare # build & install deps
+yarn docker:dev # run dev environment
+# check package.json for more
 ```
 
 ###### Frontend should now be accessible on [port 3000](http://localhost:3000)
 
 ### Prod
 
-Build & run production images
+Build & run production images with facade nginx
 
 ```sh
 yarn docker:prod:build

@@ -1,22 +1,20 @@
 # Getting started
 
-## Common steps
-
-1. remove yarn.lock from .gitignore
+1. run `yarn install` to setup yarn
 2. create .env from .env.example
-3. run docker dev
-4. install & freeze deps, commit yarn.lock
-5. test dev
-6. test prod build
-7. search for TODOs
+3. prepare docker dev environment `yarn docker:dev:prepare`
+4. test dev `yarn docker:dev`
+5. test prod build `yarn docker:prod:upi`
+6. remove `yarn.lock` from `.gitignore` & freeze dependencies
+7. search for `TODO`s
 
 8. generate your components, pages, hooks & helpers with hygen
-9. add your services into apps/
+9. add your services into apps/ & extend compose configuration
 10. add your shared packages into packages/ (see [recipes](./RECIPES.md))
 
 ### Experimental features enabled:
 
-- Next.js standalone mode (= version lock in package.json)
+- Next.js standalone mode (= nextjs version lock in package.json)
 
 ## Limitations
 

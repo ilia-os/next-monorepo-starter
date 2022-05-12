@@ -1,6 +1,5 @@
-const path = require('path')
+const { join, resolve } = require('path')
 const { i18n } = require('./next-i18next.config')
-const { I18NextHMRPlugin } = require('i18next-hmr/plugin')
 
 const withBundleAnalyzer =
 	process.env.ANALYZE === 'true'
@@ -14,25 +13,22 @@ const baseConfig = {
 	i18n,
 	experimental: {
 		outputStandalone: true,
-		outputFileTracingRoot: path.join(__dirname, '../../'),
+		outputFileTracingRoot: join(__dirname, '../../'),
 	},
 	sassOptions: {
-		includePaths: [path.resolve(__dirname, 'src', 'css')],
+		includePaths: [resolve(__dirname, 'src', 'css')],
 		prependData: `@import "@css/variables.scss";`,
 	},
 
 	webpack(wpConfig, context) {
-		wpConfig.resolve.alias['@components'] = path.join(
-			__dirname,
-			'src/components'
-		)
-		wpConfig.resolve.alias['@constants'] = path.join(__dirname, 'src/constants')
-		wpConfig.resolve.alias['@helpers'] = path.join(__dirname, 'src/helpers')
-		wpConfig.resolve.alias['@types'] = path.join(__dirname, 'src/typings')
-		wpConfig.resolve.alias['@hooks'] = path.join(__dirname, 'src/hooks')
-		wpConfig.resolve.alias['@icons'] = path.join(__dirname, 'src/icons')
-		wpConfig.resolve.alias['@css'] = path.join(__dirname, 'src/css')
-		wpConfig.resolve.alias['@'] = path.join(__dirname, 'src')
+		wpConfig.resolve.alias['@components'] = join(__dirname, 'src/components')
+		wpConfig.resolve.alias['@constants'] = join(__dirname, 'src/constants')
+		wpConfig.resolve.alias['@helpers'] = join(__dirname, 'src/helpers')
+		wpConfig.resolve.alias['@types'] = join(__dirname, 'src/typings')
+		wpConfig.resolve.alias['@hooks'] = join(__dirname, 'src/hooks')
+		wpConfig.resolve.alias['@icons'] = join(__dirname, 'src/icons')
+		wpConfig.resolve.alias['@css'] = join(__dirname, 'src/css')
+		wpConfig.resolve.alias['@'] = join(__dirname, 'src')
 
 		/* Icons */
 		wpConfig.module.rules.push({
@@ -59,7 +55,8 @@ const baseConfig = {
 			console.log('Running development webpack..')
 
 			/* i18next-hmr */
-			const localesDir = path.resolve('public/locales')
+			const localesDir = resolve('public/locales')
+			const { I18NextHMRPlugin } = require('i18next-hmr/plugin')
 			wpConfig.plugins.push(new I18NextHMRPlugin({ localesDir }))
 		}
 

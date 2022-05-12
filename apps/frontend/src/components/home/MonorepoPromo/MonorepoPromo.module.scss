@@ -5,32 +5,33 @@
 	justify-content: center;
 	align-items: center;
 
-	.title a {
-		color: $primary_color;
-		text-decoration: none;
-	}
-
-	.title a:hover,
-	.title a:focus,
-	.title a:active {
-		text-decoration: underline;
-	}
-
 	.title {
 		margin: 0;
 		line-height: 1.15;
 		font-size: 4rem;
-	}
 
-	.title,
-	.description {
-		text-align: center;
+		.accent,
+		a {
+			color: $primary_color;
+			text-decoration: none;
+
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	.description {
 		margin: 4rem 0;
 		line-height: 1.5;
 		font-size: 1.5rem;
+	}
+
+	.title,
+	.description {
+		text-align: center;
 	}
 
 	.code {
@@ -46,6 +47,11 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
+
+		@media (max-width: 600px) {
+			width: 100%;
+			grid-template-columns: 1fr;
+		}
 
 		.card {
 			height: 100%;
@@ -80,13 +86,6 @@
 				font-size: 1.25rem;
 				line-height: 1.5;
 			}
-		}
-	}
-
-	@media (max-width: 600px) {
-		.grid {
-			width: 100%;
-			grid-template-columns: 1fr;
 		}
 	}
 }

@@ -5,6 +5,7 @@ services:
     container_name: monorepo-frontend-dev
     ports:
       - '3000:3000'
+      - '9229:9229'
     build:
       context: .
       dockerfile: Dockerfile.frontend.dev

@@ -54,8 +54,8 @@ WORKDIR /repo
 COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/.next/standalone ./
 
 WORKDIR /repo/apps/frontend/.next/cache
+RUN mkdir -p /app/.next/cache/images && chown nextjs:nodejs /app/.next/cache/images
 VOLUME /repo/apps/frontend/.next/cache/images
-RUN chown -R nextjs:nodejs .
 
 WORKDIR /repo/apps/frontend
 COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/next.config.js ./

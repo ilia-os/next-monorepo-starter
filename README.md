@@ -46,7 +46,7 @@ yarn docker:prod:up
 - production-ready docker setup with nginx proxy
 - dev in docker
 - generators made with hygen
-- i18n-ready with locales HMR
+- i18n-ready with locales HMR & scanner
 - routes metadata framework
 - next-seo setup
 - sitemap generation

@@ -1,13 +1,13 @@
 {
-	"org": {
-		"name": "next monorepo"
-	},
-	"pages": {
-		"home": {
-			"title": "Home"
-		},
-		"example": {
-			"title": "Example"
-		}
-	}
+  "org": {
+    "name": "next monorepo"
+  },
+  "pages": {
+    "home": {
+      "title": "Home"
+    },
+    "example": {
+      "title": "Examples"
+    }
+  }
 }

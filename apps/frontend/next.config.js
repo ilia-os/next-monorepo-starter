@@ -58,6 +58,12 @@ const baseConfig = {
 			const localesDir = resolve('public/locales')
 			const { I18NextHMRPlugin } = require('i18next-hmr/plugin')
 			wpConfig.plugins.push(new I18NextHMRPlugin({ localesDir }))
+
+			/* i18next-scanner */
+			const i18nextScannerWebpackPlugin = require('i18next-scanner-webpack')
+			wpConfig.plugins.push(
+				new i18nextScannerWebpackPlugin(require('./i18next-scanner.config'))
+			)
 		}
 
 		return wpConfig

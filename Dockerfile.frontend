@@ -46,16 +46,11 @@ FROM node:16-alpine AS runner
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
-ENV PORT 3000
+RUN mkdir -p /repo/apps/frontend/.next/cache/images && chown -R nextjs:nodejs /repo/apps/frontend/.next/cache
+VOLUME /repo/apps/frontend/.next/cache/images
 
 WORKDIR /repo
 COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/.next/standalone ./
-
-WORKDIR /repo/apps/frontend/.next/cache
-RUN mkdir -p /app/.next/cache/images && chown nextjs:nodejs /app/.next/cache/images
-VOLUME /repo/apps/frontend/.next/cache/images
 
 WORKDIR /repo/apps/frontend
 COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/next.config.js ./
@@ -63,6 +58,10 @@ COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/next.config.js ./
 # Better serve directly
 COPY --from=builder /repo/apps/frontend/public ./public
 COPY --from=builder --chown=nextjs:nodejs /repo/apps/frontend/.next/static ./.next/static
+
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV PORT 3000
 
 USER nextjs
 EXPOSE 3000

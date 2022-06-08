@@ -27,6 +27,7 @@ const baseConfig = {
 		wpConfig.resolve.alias['@types'] = join(__dirname, 'src/typings')
 		wpConfig.resolve.alias['@hooks'] = join(__dirname, 'src/hooks')
 		wpConfig.resolve.alias['@icons'] = join(__dirname, 'src/icons')
+		wpConfig.resolve.alias['@images'] = join(__dirname, 'public/images')
 		wpConfig.resolve.alias['@css'] = join(__dirname, 'src/css')
 		wpConfig.resolve.alias['@'] = join(__dirname, 'src')
 

@@ -9,6 +9,7 @@
 			"@types": ["./src/types"],
 			"@hooks": ["./src/hooks"],
 			"@icons": ["./src/icons"],
+			"@images/*": ["./public/images/*"],
 			"@/*": ["./src/*"]
 		}
 	},

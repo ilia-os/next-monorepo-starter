@@ -31,7 +31,7 @@ COPY /apps/frontend/public ./public
 COPY /apps/frontend/src ./src
 COPY /apps/frontend/pages ./pages
 
-COPY /apps/frontend/.env.* ./
+COPY /apps/frontend/.env* ./
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1

@@ -21,7 +21,7 @@ export const Header: React.FC<THeaderProps> = ({}) => {
 			</Link>
 			<ul className={styles.menu}>
 				{Object.entries(routesMap)
-					.filter(([key, route]) => route.sections.includes('header'))
+					.filter(([, route]) => route.sections.includes('header'))
 					.map(([key, route]) => (
 						<li className={styles.item} key={key}>
 							<Link href={route.pathname} title={route.title}>

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styles from './AppLayout.module.scss'
 import { useTranslation } from '@hooks'
-import { cx } from '@helpers'
 import { DefaultSeo, Footer, Header } from '@components'
 import { titleTemplate } from '@constants'
 

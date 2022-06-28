@@ -22,7 +22,7 @@ WORKDIR /repo/apps/frontend
 
 COPY /apps/frontend/tsconfig.json ./
 COPY /apps/frontend/.eslintrc.json ./
-COPY /apps/frontend/next-sitemap.js ./
+COPY /apps/frontend/next-sitemap.config.js ./
 COPY /apps/frontend/*.config.js ./
 
 COPY /apps/frontend/README.md ./
